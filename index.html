@@ -6,7 +6,7 @@
     <title>Destrave Seu Potencial - Ebook Interativo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- Estilos CSS (Ajustados para melhor proporção) --- */
+        /* --- DESIGN AJUSTADO E PROPORCIONAL --- */
         :root {
             --gold-color: #c49a6c;
             --dark-gold: #a87f55;
@@ -46,7 +46,7 @@
             flex-direction: column;
         }
 
-        /* Área da Imagem do Livro */
+        /* Coluna da Imagem */
         .product-visual {
             padding: 40px 30px;
             text-align: center;
@@ -70,7 +70,7 @@
             box-shadow: 0 20px 45px rgba(0,0,0,0.2);
         }
 
-        /* Área de Informações e Formulário */
+        /* Coluna do Texto e Formulário */
         .product-info {
             padding: 50px 40px;
             flex: 1;
@@ -87,7 +87,7 @@
         }
 
         .product-description {
-            font-size: 1.2rem; /* Aumentei um pouco a fonte */
+            font-size: 1.2rem;
             line-height: 1.8;
             color: #555;
             margin-bottom: 40px;
@@ -116,7 +116,7 @@
             border: 1px solid rgba(196, 154, 108, 0.1);
         }
 
-        /* Formulário */
+        /* Estilo do Formulário */
         .form-group {
             margin-bottom: 25px;
             text-align: left;
@@ -186,7 +186,6 @@
             font-size: 1.1rem;
         }
 
-        /* Rodapé */
         footer {
             padding: 30px;
             text-align: center;
@@ -217,48 +216,38 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* --- Responsividade e Proporção para Desktop --- */
+        /* Responsividade */
         @media (min-width: 900px) {
             .content-container {
                 flex-direction: row;
                 align-items: stretch;
             }
-
             .product-visual {
-                /* Diminuí a largura da coluna da imagem para 38% */
                 flex: 0 0 38%; 
                 padding: 60px 40px;
                 border-right: 3px solid var(--light-gold-bg);
             }
-            
             .book-cover {
                 max-width: 95%;
-                /* Limitei a altura máxima para o livro não ficar gigante */
                 max-height: 480px; 
             }
-
             .product-info {
                 flex: 1;
-                /* Aumentei o padding para dar mais respiro ao texto */
                 padding: 70px 80px; 
                 text-align: left;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
             }
-
             .product-description, .form-group, .btn-buy {
                 margin-left: 0;
                 margin-right: 0;
             }
-            
             .main-title {
-                /* Aumentei a fonte do título principal */
                 font-size: 3.5rem; 
             }
         }
 
-        /* Responsividade para Celulares Pequenos */
         @media (max-width: 600px) {
             body { padding: 15px; }
             .product-visual { padding: 30px 20px; }
@@ -271,13 +260,8 @@
     </style>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-       (function(){
-          // ✅ SUA PUBLIC KEY PREENCHIDA
-          emailjs.init("ojl9iL8Yo3XXWXxeN");
-       })();
-    </script>
-</head>
+    
+    </head>
 <body>
 
     <div class="main-wrapper">
@@ -326,13 +310,16 @@
     </div>
 
     <script>
-        // -----------------------------------------------------------
-        // CONFIGURAÇÃO COMPLETA (NÃO PRECISA MEXER)
-        // -----------------------------------------------------------
-        const EMAILJS_SERVICE_ID = "carolangelicapsico"; // ✅ Seu ID de serviço
-        const EMAILJS_TEMPLATE_ID = "template_i3mma1d";  // ✅ Seu ID de template
-        const LINK_DE_PAGAMENTO = "https://link.picpay.com/p/1769726818697be36245850"; // ✅ Seu PicPay
-        // -----------------------------------------------------------
+        // --- SEUS DADOS (EXTRAÍDOS DOS PRINTS) ---
+        const MY_PUBLIC_KEY = "ojl9iL8Yo3XXWXxeN";     // Chave do Print
+        const MY_SERVICE_ID = "carolangelicapsico";    // ID do Print
+        const MY_TEMPLATE_ID = "template_i3mma1d";     // Template do Print
+        const LINK_DE_PAGAMENTO = "https://link.picpay.com/p/1769726818697be36245850";
+        
+        // Inicializa o EmailJS aqui mesmo para garantir
+        (function(){
+            emailjs.init(MY_PUBLIC_KEY);
+        })();
 
         const form = document.getElementById('purchase-form');
         const statusMsg = document.getElementById('status-message');
@@ -342,30 +329,33 @@
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Muda botão para "Processando..."
+            // Feedback visual
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
             submitBtn.disabled = true;
             statusMsg.style.color = "#a87f55";
-            statusMsg.innerText = "Registrando seus dados...";
+            statusMsg.innerText = "Conectando ao servidor...";
 
-            // Envia o e-mail
-            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+            // Envio
+            emailjs.sendForm(MY_SERVICE_ID, MY_TEMPLATE_ID, this)
                 .then(() => {
+                    // SUCESSO
                     console.log('E-mail enviado!');
-                    statusMsg.innerText = "Redirecionando para o pagamento seguro...";
+                    statusMsg.innerText = "Sucesso! Redirecionando para o pagamento...";
                     statusMsg.style.color = "green";
                     
-                    // Aguarda 1.5s e redireciona para o PicPay
                     setTimeout(() => {
                         window.location.href = LINK_DE_PAGAMENTO;
                     }, 1500);
 
                 }, (error) => {
+                    // ERRO
                     console.error('Erro:', error);
                     submitBtn.innerHTML = originalBtnText;
                     submitBtn.disabled = false;
-                    // Mensagem de erro mais amigável para o usuário
-                    statusMsg.innerText = "Não foi possível conectar. Por favor, verifique sua internet e tente novamente.";
+                    
+                    // Mostra o erro real se ainda der problema
+                    alert("Erro técnico: " + JSON.stringify(error));
+                    statusMsg.innerText = "Erro ao processar. Tente novamente.";
                     statusMsg.style.color = "red";
                 });
         });
