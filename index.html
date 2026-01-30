@@ -6,7 +6,7 @@
     <title>Destrave Seu Potencial - Ebook Interativo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- DESIGN AJUSTADO E PROPORCIONAL --- */
+        /* --- DESIGN (Mantido igual ao aprovado) --- */
         :root {
             --gold-color: #c49a6c;
             --dark-gold: #a87f55;
@@ -14,7 +14,6 @@
             --text-dark: #3e362e;
             --light-gold-bg: #fff8ec;
         }
-
         body {
             font-family: 'Georgia', serif;
             background-color: var(--bg-cream);
@@ -28,7 +27,6 @@
             min-height: 100vh;
             box-sizing: border-box;
         }
-
         .main-wrapper {
             background-color: #fff;
             max-width: 1100px;
@@ -40,13 +38,10 @@
             display: flex;
             flex-direction: column;
         }
-
         .content-container {
             display: flex;
             flex-direction: column;
         }
-
-        /* Coluna da Imagem */
         .product-visual {
             padding: 40px 30px;
             text-align: center;
@@ -55,7 +50,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .book-cover {
             max-width: 80%;
             height: auto;
@@ -64,19 +58,15 @@
             transform: rotate(-2deg);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .book-cover:hover {
             transform: rotate(0deg) scale(1.02);
             box-shadow: 0 20px 45px rgba(0,0,0,0.2);
         }
-
-        /* Coluna do Texto e Formulário */
         .product-info {
             padding: 50px 40px;
             flex: 1;
             text-align: center;
         }
-
         .main-title {
             font-size: 2.5rem;
             color: var(--dark-gold);
@@ -85,7 +75,6 @@
             letter-spacing: 1.5px;
             line-height: 1.2;
         }
-
         .product-description {
             font-size: 1.2rem;
             line-height: 1.8;
@@ -95,7 +84,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .cta-title {
             color: var(--dark-gold);
             font-size: 1.8rem;
@@ -103,7 +91,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
         .delivery-info {
             font-size: 1.05rem;
             color: #666;
@@ -115,8 +102,6 @@
             display: inline-block;
             border: 1px solid rgba(196, 154, 108, 0.1);
         }
-
-        /* Estilo do Formulário */
         .form-group {
             margin-bottom: 25px;
             text-align: left;
@@ -124,7 +109,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 10px;
@@ -132,7 +116,6 @@
             color: var(--dark-gold);
             font-size: 1.05rem;
         }
-
         .form-group input {
             width: 100%;
             padding: 15px;
@@ -143,14 +126,12 @@
             transition: border-color 0.3s, box-shadow 0.3s;
             background-color: #fafafa;
         }
-
         .form-group input:focus {
             outline: none;
             border-color: var(--gold-color);
             box-shadow: 0 0 0 4px rgba(196, 154, 108, 0.1);
             background-color: #fff;
         }
-
         .btn-buy {
             background: linear-gradient(135deg, var(--gold-color), var(--dark-gold));
             color: white;
@@ -166,33 +147,28 @@
             max-width: 500px;
             letter-spacing: 0.5px;
         }
-
         .btn-buy:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 25px rgba(168, 127, 85, 0.5);
         }
-
         .btn-buy:disabled {
             background: #ccc;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
-
         #status-message {
             margin-top: 25px;
             font-weight: bold;
             min-height: 1.2em;
             font-size: 1.1rem;
         }
-
         footer {
             padding: 30px;
             text-align: center;
             background-color: transparent;
             margin-top: auto;
         }
-
         .insta-link {
             color: var(--dark-gold);
             text-decoration: none;
@@ -202,11 +178,7 @@
             font-weight: bold;
             transition: color 0.3s;
         }
-        
-        .insta-link:hover {
-            color: var(--gold-color);
-        }
-
+        .insta-link:hover { color: var(--gold-color); }
         .insta-link i {
             margin-right: 10px;
             font-size: 1.6rem;
@@ -215,39 +187,14 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        /* Responsividade */
         @media (min-width: 900px) {
-            .content-container {
-                flex-direction: row;
-                align-items: stretch;
-            }
-            .product-visual {
-                flex: 0 0 38%; 
-                padding: 60px 40px;
-                border-right: 3px solid var(--light-gold-bg);
-            }
-            .book-cover {
-                max-width: 95%;
-                max-height: 480px; 
-            }
-            .product-info {
-                flex: 1;
-                padding: 70px 80px; 
-                text-align: left;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            .product-description, .form-group, .btn-buy {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .main-title {
-                font-size: 3.5rem; 
-            }
+            .content-container { flex-direction: row; align-items: stretch; }
+            .product-visual { flex: 0 0 38%; padding: 60px 40px; border-right: 3px solid var(--light-gold-bg); }
+            .book-cover { max-width: 95%; max-height: 480px; }
+            .product-info { flex: 1; padding: 70px 80px; text-align: left; display: flex; flex-direction: column; justify-content: center; }
+            .product-description, .form-group, .btn-buy { margin-left: 0; margin-right: 0; }
+            .main-title { font-size: 3.5rem; }
         }
-
         @media (max-width: 600px) {
             body { padding: 15px; }
             .product-visual { padding: 30px 20px; }
@@ -261,13 +208,19 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
-    </head>
+    <script type="text/javascript">
+       (function(){
+          // ✅ SUA NOVA CHAVE PÚBLICA (Do print que você mandou)
+          emailjs.init("q_4TtjGfNwy3M9u-X"); 
+       })();
+    </script>
+</head>
 <body>
 
     <div class="main-wrapper">
         <div class="content-container">
             <section class="product-visual">
-                <img src="image_5.png" alt="Capa do Ebook Desperte Sua Frequência Interior" class="book-cover">
+                <img src="image_5.png" alt="Capa do Ebook" class="book-cover">
             </section>
 
             <section class="product-info">
@@ -279,7 +232,7 @@
                 <h2 class="cta-title">Inicie Sua Jornada de Transformação</h2>
 
                 <p class="delivery-info">
-                    <i class="fas fa-info-circle"></i> Após a conclusão da compra, o material será enviado para o seu e-mail cadastrado abaixo em até <strong>24 horas</strong>.
+                    <i class="fas fa-info-circle"></i> O material será enviado para seu e-mail em até <strong>24 horas</strong>.
                 </p>
 
                 <form id="purchase-form">
@@ -310,16 +263,12 @@
     </div>
 
     <script>
-        // --- SEUS DADOS (EXTRAÍDOS DOS PRINTS) ---
-        const MY_PUBLIC_KEY = "ojl9iL8Yo3XXWXxeN";     // Chave do Print
-        const MY_SERVICE_ID = "carolangelicapsico";    // ID do Print
-        const MY_TEMPLATE_ID = "template_i3mma1d";     // Template do Print
-        const LINK_DE_PAGAMENTO = "https://link.picpay.com/p/1769726818697be36245850";
+        // CONFIGURAÇÃO
+        const SERVICE_ID = "carolangelicapsico"; // Mantido
+        const TEMPLATE_ID = "template_i3mma1d";  // Mantido
         
-        // Inicializa o EmailJS aqui mesmo para garantir
-        (function(){
-            emailjs.init(MY_PUBLIC_KEY);
-        })();
+        // ⚠️ LINK NOVO DO MERCADO PAGO ⚠️
+        const LINK_DE_PAGAMENTO = "https://mpago.la/2MpBMka";
 
         const form = document.getElementById('purchase-form');
         const statusMsg = document.getElementById('status-message');
@@ -329,18 +278,15 @@
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Feedback visual
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
             submitBtn.disabled = true;
             statusMsg.style.color = "#a87f55";
-            statusMsg.innerText = "Conectando ao servidor...";
+            statusMsg.innerText = "Conectando...";
 
-            // Envio
-            emailjs.sendForm(MY_SERVICE_ID, MY_TEMPLATE_ID, this)
+            emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
                 .then(() => {
-                    // SUCESSO
-                    console.log('E-mail enviado!');
-                    statusMsg.innerText = "Sucesso! Redirecionando para o pagamento...";
+                    console.log('SUCESSO!');
+                    statusMsg.innerText = "Sucesso! Redirecionando para o Mercado Pago...";
                     statusMsg.style.color = "green";
                     
                     setTimeout(() => {
@@ -348,13 +294,11 @@
                     }, 1500);
 
                 }, (error) => {
-                    // ERRO
-                    console.error('Erro:', error);
+                    console.error('ERRO:', error);
                     submitBtn.innerHTML = originalBtnText;
                     submitBtn.disabled = false;
                     
-                    // Mostra o erro real se ainda der problema
-                    alert("Erro técnico: " + JSON.stringify(error));
+                    alert("Erro EmailJS: " + JSON.stringify(error));
                     statusMsg.innerText = "Erro ao processar. Tente novamente.";
                     statusMsg.style.color = "red";
                 });
